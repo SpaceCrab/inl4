@@ -1,6 +1,6 @@
 package Model;
 
-public class Cruiser extends Skip
+public class Cruiser extends Ship
 {
     public Cruiser(){
 

@@ -1,8 +1,8 @@
 package Model;
 
-public class Submarine extends Skip
+public class Submarine extends Ship
 {
     public Submarine(){
-
+        super(1, ShipType.Submarine);
     }
 }

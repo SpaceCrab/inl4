@@ -1,13 +1,18 @@
 package Model;
 
-public abstract class Skip
+public abstract class Ship
 {
-    protected String name;
-    protected int size;
-    protected String orientation;
-    protected int positionX; // ett int värde eller två? x och y kanske är lättare
-    protected int positionY;
+    private String name;
+    private int size;
+    private String orientation;
+    private int positionX; // ett int värde eller två? x och y kanske är lättare
+    private int positionY;
+    ShipType shipType;
 
+    public Ship(int size,ShipType shipType){
+        this.shipType = shipType;
+        this.size = size;
+    }
     public int getPositionX()
     {
         return positionX;

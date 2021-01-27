@@ -1,6 +1,6 @@
 package Model;
 
-public class Hunter extends Skip
+public class Hunter extends Ship
 {
     public Hunter()
     {

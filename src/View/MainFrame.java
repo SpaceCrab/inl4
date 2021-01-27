@@ -12,23 +12,19 @@ public class MainFrame
 {
     private JFrame frame;
     private JButton[][] button;
-    JPanel
+    private Controller controller;
 
-    public MainFrame()
+    MainPanel mainpanel;
+
+    public MainFrame(Controller controller)
     {
         frame = new JFrame("Sinking Ships");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        frame.setLayout(new GridLayout(10, 10, 1, 1));
-        button = new JButton[10][10];
-        for (int i = 0; i < 100; i++)
-        {
-            button.setPreferredSize(new Dimension(100, 110));
-            frame.add(button);
-        }
-
         frame.setSize(600, 600);
         frame.setVisible(true);
+
+        mainpanel = new MainPanel(controller);
     }
 
 }

@@ -8,10 +8,7 @@ package Model;
  */
 public class GameManager
 {
-    private Square[][] board = new Square[10][10];
-    private String[][] highscore = new String [10][2];
-    private int roundCount;
-    private String name;
+
 
     public GameManager(){
 

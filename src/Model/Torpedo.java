@@ -1,6 +1,6 @@
 package Model;
 
-public class Torpedo extends Skip
+public class Torpedo extends Ship
 {
     public Torpedo()
     {
