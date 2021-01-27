@@ -1,6 +1,6 @@
 package Model;
 
-public class Submarine extends Skepp
+public class Submarine extends Skip
 {
     public Submarine(){
 

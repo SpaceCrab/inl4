@@ -1,20 +1,31 @@
 package Model;
 
-public abstract class Skepp
+public abstract class Skip
 {
     protected String name;
     protected int size;
     protected String orientation;
-    protected int position; // ett int värde eller två? x och kanske är lättare
+    protected int positionX; // ett int värde eller två? x och y kanske är lättare
+    protected int positionY;
 
-    public int getPosition()
+    public int getPositionX()
     {
-        return position;
+        return positionX;
     }
 
-    public void setPosition(int position)
+    public void setPositionX(int positionX)
     {
-        this.position = position;
+        this.positionX = positionX;
+    }
+
+    public int getPositionY()
+    {
+        return positionY;
+    }
+
+    public void setPositionY(int positionY)
+    {
+        this.positionY = positionY;
     }
 
     public String getName(){

@@ -1,6 +1,8 @@
 package Model;
 
-public class Battleship extends Skepp
+public class Battleship extends Skip
 {
+    public Battleship(){
 
+    }
 }
