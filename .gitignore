@@ -1,0 +1,20 @@
+# output directories
+target
+out
+
+# ouput files
+.classpath
+.project
+*.class
+
+# workspace
+.settings
+.vscode
+.idea
+*.iml
+
+# misc
+*.vpp.bak*
+*.vpp.lck
+*.zip
+*.png
