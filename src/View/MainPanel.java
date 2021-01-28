@@ -1,47 +1,38 @@
 package View;
 
 import Controller.Controller;
-import Model.GameManager;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
 import java.awt.*;
 
 public class MainPanel extends JPanel
 {
-    private JButton[][] buttons;
+
+    private SouthPanel southPanel;
+    private CenterPanel centerPanel;
     private Controller controller;
 
     public MainPanel()
     {
         this.controller = controller;
-        addButtons();
         setupPanel();
     }
 
-    private void addButtons()
+    private void setupPanel()
     {
-        GridLayout layout = new GridLayout(10, 10, 1, 1);
+        BorderLayout layout = new BorderLayout();
         setLayout(layout);
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-               buttons[i][j] = new JButton(" ");
-               add(buttons[i][j]);
-               buttons[i][j].addActionListener(this);
-            }
-        }
+        Border border = this.getBorder();
+        Border borderMargin = BorderFactory.createEmptyBorder(8,8,8,8);
+        setBorder(new CompoundBorder(border, borderMargin));
+
+        southPanel = new SouthPanel(controller);
+        add(southPanel, BorderLayout.SOUTH);
+
+        centerPanel = new CenterPanel(controller);
+        add(centerPanel, BorderLayout.CENTER);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JButton button = (JButton) e.getSource();
-        for (int i = 0; i < 10; i++){
-            for (int j = 0; j < 10; j++) {
-                if (buttons[i][j].equals(button)) {
-                    controller.shoot(i, j);
-                    break;
-                }
-            }
-        }
-    }
 }

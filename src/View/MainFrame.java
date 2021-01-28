@@ -13,11 +13,13 @@ public class MainFrame
     private JFrame frame;
     private JButton[][] button;
     private Controller controller;
+    private MainPanel mainpanel;
 
-    MainPanel mainpanel;
 
     public MainFrame(Controller controller)
     {
+        this.controller = controller;
+
         frame = new JFrame("Sinking Ships");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
