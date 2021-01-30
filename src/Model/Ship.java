@@ -4,25 +4,27 @@ public abstract class Ship
 {
     private String name;
     private int size;
-    private int health;
     private String orientation;
     private int positionX; // ett int värde eller två? x och y kanske är lättare
     private int positionY;
+    private int nbrOfHits;
     ShipType shipType;
 
     public Ship(int size,ShipType shipType){
         this.shipType = shipType;
         this.size = size;
     }
-    public int getHealth()
+
+    public int getNbrOfHits()
     {
-        return health;
+        return nbrOfHits;
     }
 
-    public void setHealth(int health)
+    public void setNbrOfHits(int nbrOfHits)
     {
-        this.health = health;
+        this.nbrOfHits = nbrOfHits;
     }
+
     public int getPositionX()
     {
         return positionX;
@@ -57,12 +59,17 @@ public abstract class Ship
     public void setName(){
         this.name = name;
     }
-    public void setSize(){
+    public void setSize(int size){
         this.size = size;
     }
 
     public void setOrientation(){
         this.orientation = orientation;
+    }
+
+    public String toString()
+    {
+       return String.format("%s ", shipType);
     }
 
 }

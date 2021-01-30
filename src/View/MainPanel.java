@@ -35,4 +35,14 @@ public class MainPanel extends JPanel
         add(centerPanel, BorderLayout.CENTER);
     }
 
+    public void roundInc(int roundCount)
+    {
+        southPanel.roundInc(roundCount);
+    }
+
+    public void reset(){
+       southPanel.reset();
+       centerPanel.reset();
+    }
+
 }

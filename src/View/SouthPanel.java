@@ -48,13 +48,20 @@ public class SouthPanel extends JPanel implements ActionListener
             if (e.getSource() == btnRestart)
             {
                 System.out.println("Restart");
+                controller.reset();
             }
             else if (e.getSource()== btnHighscore)
             {
                 System.out.println("Highscore");
+                showHighscore();
             }
 
         }
+    }
+
+    public void showHighscore()
+    {
+      controller.showHighscore();
     }
 
 }

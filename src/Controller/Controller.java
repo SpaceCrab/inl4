@@ -5,9 +5,13 @@
 */
 package Controller;
 
-
-import Model.Square;
+import Model.Highscore;
+import Model.Player;
+import Model.PlayingField;
 import View.MainFrame;
+
+import javax.swing.*;
+import java.util.PrimitiveIterator;
 
 public class Controller
 {
@@ -15,8 +19,6 @@ public class Controller
         MainFrame mainFrame = new MainFrame();
     }
 
-    private Square[][] board = new Square[10][10];
-    private String[][] highscore = new String [10][2];
     private int roundCount;
     private String name;
 

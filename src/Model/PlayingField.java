@@ -9,15 +9,21 @@ package Model;
 public class PlayingField
 {
     Ship[][] shipLocation;
+    int size;
+    int nbrOfShips;
 
     public PlayingField(int size, int boardChoice){
         shipLocation = new Ship[size][size];
-
+        this.size = size;
         if(boardChoice == 1){
 
         }
         else{
 
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"please type 1 or 2");
         }
     }
 
@@ -52,6 +58,8 @@ public class PlayingField
         shipLocation[5][6] = battleshipPlacement;
         shipLocation[6][6] = battleshipPlacement;
         shipLocation[7][6] = battleshipPlacement;
+
+        nbrOfShips = 15;
     }
     public void boardOptionTwo()
     {
@@ -86,6 +94,40 @@ public class PlayingField
         shipLocation[8][9] = battleshipPlacement;
         shipLocation[9][9] = battleshipPlacement;
 
+        nbrOfShips = 15;
+
     }
+
+    /**
+     * Tar bort en size från skeppet och returnerar true vid träff,
+     * false vid miss
+     * @param x
+     * @param y
+     * @return
+     */
+    public boolean fireAt(int x, int y)
+    {
+        if(shipLocation[y][x] != null)
+        {
+            shipLocation[y][x].setSize(shipLocation[y][x].getSize() - 1);
+            String shipType = shipLocation[y][x].toString();
+
+            JOptionPane.showMessageDialog(null,"You hit a " + shipType + "!");
+
+            nbrOfShips--;
+
+            if(shipLocation[y][x].getSize() < 1) JOptionPane.showMessageDialog(null,"You sank a " + shipType + "!");
+
+            return true;
+        }
+        else    return false;
+    }
+
+    public boolean winCondition()
+    {
+        if (nbrOfShips != 0) return false;
+        else return true;
+    }
+
 
 }

@@ -46,6 +46,17 @@ public class CenterPanel extends JPanel implements ActionListener
         }
     }
 
+    public void reset()
+    {
+        for(int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j<10; j++)
+            {
+                buttons[i][j].setEnabled(true);
+            }
+        }
+    }
+
     class ButtonActionListeners implements ActionListener
     {
 
@@ -67,7 +78,11 @@ public class CenterPanel extends JPanel implements ActionListener
                 {
                     if (buttons[i][j].equals(button))
                     {
-                        controller.fireAt(i, j);
+                        buttons[i][j].setEnabled(false);
+                        if(controller.fireAt(i, j))
+                        {
+                            buttons[i][j].setText("Hit");
+                        }
                         break;
                     }
                 }
