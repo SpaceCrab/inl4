@@ -10,6 +10,8 @@ public class SouthPanel extends JPanel implements ActionListener
 {
     private Controller controller;
     private JButton btnRestart, btnHighscore;
+    private JLabel labelCount;
+    private JLabel resetCount;
 
     public SouthPanel(Controller controller)
     {
@@ -27,6 +29,9 @@ public class SouthPanel extends JPanel implements ActionListener
         btnHighscore = new JButton("Show highscore");
         add(btnHighscore);
         btnHighscore.addActionListener(listener);
+
+        labelCount = new JLabel();
+        add(labelCount);
 
 
     }
@@ -62,6 +67,14 @@ public class SouthPanel extends JPanel implements ActionListener
     public void showHighscore()
     {
       controller.showHighscore();
+    }
+
+    public void roundInc(int roundCount)
+    {
+        labelCount.setText("Total shots fired: " + String.valueOf(roundCount));
+    }
+    public void reset(){
+        labelCount.setText("0");
     }
 
 }

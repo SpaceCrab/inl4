@@ -5,14 +5,15 @@
 */
 package View;
 
+import Controller.Controller;
 import javax.swing.*;
 
-public class MainFrame
+public class   MainFrame
 {
     private JFrame frame;
-    private JButton[][] button;
     private Controller controller;
     private MainPanel mainpanel;
+
 
 
     public MainFrame(Controller controller)
@@ -23,9 +24,26 @@ public class MainFrame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         frame.setSize(600, 600);
+        frame.setLocation(300,300);
         frame.setVisible(true);
 
         mainpanel = new MainPanel(controller);
+        frame.add(mainpanel);
+
+    }
+
+    public String gameBoardChoice(String message) {
+        return JOptionPane.showInputDialog(frame, message);
+    }
+
+    public void roundInc(int roundCount)
+    {
+        mainpanel.roundInc(roundCount);
+    }
+
+    public void reset()
+    {
+        mainpanel.reset();
     }
 
 }

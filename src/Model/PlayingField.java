@@ -1,5 +1,7 @@
 package Model;
 
+import javax.swing.*;
+
 /****
  * metoder för hantering av spelet
  *  board är en array av squares
@@ -16,10 +18,10 @@ public class PlayingField
         shipLocation = new Ship[size][size];
         this.size = size;
         if(boardChoice == 1){
-
+            boardOptionOne();
         }
-        else{
-
+        else if(boardChoice == 2){
+            boardOptionTwo();
         }
         else
         {
@@ -34,7 +36,7 @@ public class PlayingField
         Submarine submarinePlacement = new Submarine();
         Cruiser cruiserPlacement = new Cruiser();
 
-        //Submarine Placement
+        //Submarine Placement [Col][Row]
         shipLocation[9][1] = submarinePlacement;
 
         //Torpedo Placement
@@ -70,7 +72,7 @@ public class PlayingField
         Cruiser cruiserPlacement = new Cruiser();
 
         //Submarine Placement
-        shipLocation[0][10] = submarinePlacement;
+        shipLocation[0][0] = submarinePlacement;
 
         //Torpedo Placement
         shipLocation[3][3] = torpedoPlacement;
