@@ -53,6 +53,7 @@ public class CenterPanel extends JPanel implements ActionListener
             for (int j = 0; j<10; j++)
             {
                 buttons[i][j].setEnabled(true);
+                buttons[i][j].setText(" ");
             }
         }
     }
