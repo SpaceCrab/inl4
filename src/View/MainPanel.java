@@ -6,8 +6,6 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class MainPanel extends JPanel
 {
@@ -42,7 +40,8 @@ public class MainPanel extends JPanel
         southPanel.roundInc(roundCount);
     }
 
-    public void reset(){
+    public void reset()
+    {
        southPanel.reset();
        centerPanel.reset();
     }

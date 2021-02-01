@@ -10,12 +10,8 @@ import Model.Player;
 import Model.PlayingField;
 import View.MainFrame;
 
-import javax.swing.*;
-import java.util.PrimitiveIterator;
-
 public class    Controller
 {
-    private Controller controller;
     private MainFrame mainFrame;
     private PlayingField playingfield;
     private Highscore highscore;
@@ -26,7 +22,6 @@ public class    Controller
     public Controller()
     {
         mainFrame = new MainFrame(this);
-        playingfield = new PlayingField(10,1);
         highscore = new Highscore(100);
         reset();
     }
@@ -41,9 +36,18 @@ public class    Controller
      */
     public boolean fireAt(int x, int y)
     {
-        boolean hit = playingfield.fireAt(x,y);
+        boolean hit;
+
+        if(playingfield.fireAt(x,y))
+        {
+            hit = true;
+        }
+        else
+        {
+            hit = false;
+        }
+
         roundInc();
-        winCondition();
         return hit;
 
     }
@@ -57,7 +61,8 @@ public class    Controller
 
         if(win)
         {
-            JOptionPane.showMessageDialog(null,"You won!");
+            showMessage("you win!!!");
+
             player.setScore(roundCount);
             highscore.addPlayer(player);
             showHighscore();
@@ -66,9 +71,15 @@ public class    Controller
 
     }
 
+    public void showMessage(String string)
+    {
+        mainFrame.messagePane(string);
+    }
+
     public void showHighscore()
     {
-        JOptionPane.showMessageDialog(null, highscore.toString());
+
+        showMessage(highscore.toString());
     }
 
 
@@ -91,22 +102,22 @@ public class    Controller
         {
             try
             {
-                boardChoice = Integer.parseInt(JOptionPane.showInputDialog(null,"Input the layout you want to play(1 or 2)" ));
+                boardChoice = Integer.parseInt(mainFrame.dialogPane("type 1 or 2 to choose board layout"));
                 whileBadChoice = false;
             }
             catch (NumberFormatException e)
             {
-                JOptionPane.showMessageDialog(null,"Please enter 1 or 2");
+                showMessage("Please type in 1 or 2");
                 whileBadChoice = true;
             }
         }
 
-
-        name = JOptionPane.showInputDialog("Enter your name: ");
-
-        mainFrame.reset();
-        playingfield = new PlayingField(10,boardChoice);
+        name = mainFrame.dialogPane("please enter your name: ");
+        playingfield = new PlayingField(10,boardChoice, this);
         roundCount = 0;
         player = new Player(name,0);
+
+        mainFrame.reset();
+
     }
 }

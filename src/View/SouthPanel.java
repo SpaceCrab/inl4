@@ -11,7 +11,6 @@ public class SouthPanel extends JPanel implements ActionListener
     private Controller controller;
     private JButton btnRestart, btnHighscore;
     private JLabel labelCount;
-    private JLabel resetCount;
 
     public SouthPanel(Controller controller)
     {

@@ -1,6 +1,6 @@
 package Model;
 
-import javax.swing.*;
+import Controller.Controller;
 
 /****
  * metoder för hantering av spelet
@@ -13,6 +13,7 @@ public class PlayingField
     Ship[][] shipLocation;
     int size;
     int nbrOfShips;
+    Controller controller;
 
     public PlayingField(int size, int boardChoice){
         shipLocation = new Ship[size][size];
@@ -27,6 +28,7 @@ public class PlayingField
         {
             JOptionPane.showMessageDialog(null,"please type 1 or 2");
         }
+        this.controller = controller;
     }
 
     public void boardOptionOne(){
@@ -112,17 +114,27 @@ public class PlayingField
         if(shipLocation[y][x] != null)
         {
             shipLocation[y][x].setSize(shipLocation[y][x].getSize() - 1);
+            shipLocation[y][x].setHit(true);
+
             String shipType = shipLocation[y][x].toString();
 
-            JOptionPane.showMessageDialog(null,"You hit a " + shipType + "!");
+            controller.showMessage("you hit a: " + shipType);
 
             nbrOfShips--;
 
-            if(shipLocation[y][x].getSize() < 1) JOptionPane.showMessageDialog(null,"You sank a " + shipType + "!");
-
+            if (shipLocation[y][x].getSize() < 1)
+            {
+                shipSink(shipType);
+                return true;
+            }
             return true;
         }
-        else    return false;
+        return false;
+    }
+
+    public void shipSink(String shipType)
+    {
+        controller.showMessage("you sank a: " + shipType);
     }
 
     public boolean winCondition()

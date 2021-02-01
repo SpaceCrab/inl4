@@ -2,8 +2,8 @@ package Model;
 
 public class Player
 {
-    private String name = " ";
-    private int score = 0;
+    private String name;
+    private int score;
 
     public Player(String name, int score){
         this.name = name;

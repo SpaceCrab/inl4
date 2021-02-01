@@ -1,9 +1,5 @@
 package Model;
 
-import Model.Player;
-
-import java.util.Arrays;
-
 public class Highscore
 {
     private Player[] scoreboard;

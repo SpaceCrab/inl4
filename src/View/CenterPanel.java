@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import Controller.Controller;
 import java.awt.event.ActionListener;
 
-public class CenterPanel extends JPanel implements ActionListener
+public class CenterPanel extends JPanel
 {
     private JButton[][] buttons;
     private Controller controller;
@@ -63,15 +63,6 @@ public class CenterPanel extends JPanel implements ActionListener
 
         public void actionPerformed(ActionEvent e)
         {
-            if (e.getSource() == buttons)
-            {
-                System.out.println("Restart");
-            }
-           /* else if (e.getSource()== btnHighscore)
-            {
-                System.out.println("Highscore");
-            }
-*/
             JButton button = (JButton) e.getSource();
             for (int i = 0; i < 10; i++)
             {
@@ -84,11 +75,12 @@ public class CenterPanel extends JPanel implements ActionListener
                         {
                             buttons[i][j].setText("Hit");
                         }
+// hello mr heist
                         break;
                     }
                 }
             }
+            controller.winCondition();
         }
-
     }
 }

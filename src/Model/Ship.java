@@ -8,6 +8,7 @@ public abstract class Ship
     private int positionX; // ett int värde eller två? x och y kanske är lättare
     private int positionY;
     private int nbrOfHits;
+    private boolean isHit = false;
     ShipType shipType;
 
     public Ship(int size,ShipType shipType){
@@ -25,6 +26,20 @@ public abstract class Ship
         this.nbrOfHits = nbrOfHits;
     }
 
+    public void setHit(boolean hit)
+    {
+        isHit = hit;
+    }
+
+    public boolean isHit()
+    {
+        return isHit;
+    }
+
+    /**
+     * Getters & Setters
+     * @return
+     */
     public int getPositionX()
     {
         return positionX;

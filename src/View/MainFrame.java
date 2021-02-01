@@ -8,7 +8,7 @@ package View;
 import Controller.Controller;
 import javax.swing.*;
 
-public class   MainFrame
+public class   MainFrame extends JFrame
 {
     private JFrame frame;
     private Controller controller;
@@ -32,7 +32,8 @@ public class   MainFrame
 
     }
 
-    public String gameBoardChoice(String message) {
+    public String gameBoardChoice(String message)
+    {
         return JOptionPane.showInputDialog(frame, message);
     }
 
@@ -43,7 +44,17 @@ public class   MainFrame
 
     public void reset()
     {
-        mainpanel.reset();
+       mainpanel.reset();
+    }
+
+    public void messagePane(String message)
+    {
+        JOptionPane.showMessageDialog(this,message);
+    }
+
+    public String dialogPane(String message)
+    {
+        return JOptionPane.showInputDialog(this,message);
     }
 
 }
