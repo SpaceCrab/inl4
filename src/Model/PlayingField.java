@@ -31,7 +31,7 @@ public class PlayingField
         }
         else
         {
-            JOptionPane.showMessageDialog(null,"please type 1 or 2");
+            controller.showMessage(" please type 1 or 2");  //eh
         }
         this.controller = controller;
     }
