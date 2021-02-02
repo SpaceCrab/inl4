@@ -5,25 +5,56 @@
 */
 package View;
 
+import Controller.Controller;
 import javax.swing.*;
-import java.awt.*;
 
-public class MainFrame
+public class   MainFrame extends JFrame
 {
+    private JFrame frame;
+    private Controller controller;
+    private MainPanel mainpanel;
 
-    public MainFrame()
+
+
+    public MainFrame(Controller controller)
     {
-        JFrame frame = new JFrame("Sinking Ships");
-        JButton button;
-        frame.setLayout(new GridLayout(10, 10, 1, 1));
+        this.controller = controller;
 
-        for (int i = 0; i < 100; i++)
-        {
-            button = new JButton();
-            button.setPreferredSize(new Dimension(100, 110));
-            frame.add(button);
-        }
+        frame = new JFrame("Sinking Ships");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         frame.setSize(600, 600);
+        frame.setLocation(300,300);
         frame.setVisible(true);
+
+        mainpanel = new MainPanel(controller);
+        frame.add(mainpanel);
+
     }
+
+    public String gameBoardChoice(String message)
+    {
+        return JOptionPane.showInputDialog(frame, message);
+    }
+
+    public void roundInc(int roundCount)
+    {
+        mainpanel.roundInc(roundCount);
+    }
+
+    public void reset()
+    {
+       mainpanel.reset();
+    }
+
+    public void messagePane(String message)
+    {
+        JOptionPane.showMessageDialog(this,message);
+    }
+
+    public String dialogPane(String message)
+    {
+        return JOptionPane.showInputDialog(this,message);
+    }
+
 }
