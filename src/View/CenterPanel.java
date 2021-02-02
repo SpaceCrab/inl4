@@ -75,7 +75,6 @@ public class CenterPanel extends JPanel
                         {
                             buttons[i][j].setText("Hit");
                         }
-// hello mr heist
                         break;
                     }
                 }

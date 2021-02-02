@@ -10,10 +10,10 @@ import Controller.Controller;
  */
 public class PlayingField
 {
-    Ship[][] shipLocation;
-    int size;
-    int nbrOfShips;
-    Controller controller;
+    private Ship[][] shipLocation;
+    private int size;
+    private int nbrOfShips;
+    private Controller controller;
 
     public PlayingField(int size, int boardChoice){
         shipLocation = new Ship[size][size];
@@ -114,7 +114,6 @@ public class PlayingField
         if(shipLocation[y][x] != null)
         {
             shipLocation[y][x].setSize(shipLocation[y][x].getSize() - 1);
-            shipLocation[y][x].setHit(true);
 
             String shipType = shipLocation[y][x].toString();
 

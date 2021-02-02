@@ -40,11 +40,16 @@ public class Highscore
         }
     }
 
-
+    /**
+     *
+     * @return returns the scoreboard in a string format where the first ten players are placed
+     * after each player there is a newline symbol
+     */
+    @Override
     public String toString()
     {
         String out = "";
-        for (int i = 0; i < playersInScoreboard; i++)
+        for (int i = 0; i < playersInScoreboard && i < 10; i++)
         {
             out += scoreboard[i].toString() + " \n";
         }
