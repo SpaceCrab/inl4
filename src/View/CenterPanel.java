@@ -12,6 +12,10 @@ public class CenterPanel extends JPanel
     private Controller controller;
 
 
+    /**
+     * Constructor CenterPanel
+     * @param controller
+     */
     public CenterPanel(Controller controller)
     {
         this.controller = controller;
@@ -19,6 +23,9 @@ public class CenterPanel extends JPanel
         addButtons();
     }
 
+    /**
+     * Method to add buttons to the centerPanel
+     */
     private void addButtons()
     {
         GridLayout layout = new GridLayout(10, 10,1,1);
@@ -33,19 +40,9 @@ public class CenterPanel extends JPanel
         }
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JButton button = (JButton) e.getSource();
-        for (int i = 0; i < 10; i++){
-            for (int j = 0; j < 10; j++) {
-                if (buttons[i][j].equals(button)) {
-                    controller.fireAt(i, j);
-                    break;
-                }
-            }
-        }
-    }
-
+    /**
+     * Resets the buttons in centerPanel
+     */
     public void reset()
     {
         for(int i = 0; i < 10; i++)

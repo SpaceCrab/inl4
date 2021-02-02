@@ -10,6 +10,11 @@ public abstract class Ship
     private int nbrOfHits;
     ShipType shipType;
 
+    /**
+     * Constructor Ship
+     * @param size
+     * @param shipType
+     */
     public Ship(int size,ShipType shipType){
         this.shipType = shipType;
         this.size = size;

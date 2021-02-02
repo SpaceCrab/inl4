@@ -5,12 +5,21 @@ public class Highscore
     private Player[] scoreboard;
     private int playersInScoreboard;
 
+    /**
+     * Constructor for Highscore
+     * @param size
+     */
     public Highscore(int size)
     {
         scoreboard = new Player[size];
         playersInScoreboard = 0;
     }
 
+    /**
+     * Method that adds players to the scoreboard
+     * @param player
+     * @return
+     */
     public boolean addPlayer(Player player)
     {
        if (playersInScoreboard < scoreboard.length)
@@ -23,6 +32,9 @@ public class Highscore
         return false;
     }
 
+    /**
+     * Method that sort the scoreboard with the lowest rounds first
+     */
     public void sortScoreboard()
     {
         Player temp;

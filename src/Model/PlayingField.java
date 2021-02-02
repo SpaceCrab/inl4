@@ -15,7 +15,12 @@ public class PlayingField
     private int nbrOfShips;
     private Controller controller;
 
-    public PlayingField(int size, int boardChoice){
+    /**
+     * Constructor PlayingField
+     * @param size
+     * @param boardChoice
+     */
+    public PlayingField(int size, int boardChoice, Controller controller){
         shipLocation = new Ship[size][size];
         this.size = size;
         if(boardChoice == 1){
@@ -31,6 +36,9 @@ public class PlayingField
         this.controller = controller;
     }
 
+    /**
+     * Method that creates a board placement, this is the first out of two
+     */
     public void boardOptionOne(){
         Torpedo torpedoPlacement = new Torpedo();
         Battleship battleshipPlacement = new Battleship();
@@ -65,6 +73,10 @@ public class PlayingField
 
         nbrOfShips = 15;
     }
+
+    /**
+     * this is the second board layout to choose
+     */
     public void boardOptionTwo()
     {
         Torpedo torpedoPlacement = new Torpedo();
@@ -111,7 +123,7 @@ public class PlayingField
      */
     public boolean fireAt(int x, int y)
     {
-        if(shipLocation[y][x] != null)
+        if (shipLocation[y][x] != null)
         {
             shipLocation[y][x].setSize(shipLocation[y][x].getSize() - 1);
 

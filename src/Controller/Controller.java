@@ -18,7 +18,9 @@ public class    Controller
     private Player player;
     private int boardChoice;
 
-
+    /**
+     * Constructor for Controller
+     */
     public Controller()
     {
         mainFrame = new MainFrame(this);
